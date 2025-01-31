@@ -1,0 +1,2 @@
+('C:\\Users\\viggo\\OneDrive\\Documents\\Python\\dnd\\build\\dnd\\PYZ-00.pyz',
+ [])
