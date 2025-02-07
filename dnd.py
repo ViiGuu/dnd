@@ -304,12 +304,13 @@ def npc(race = '', gender = '', stat_block = ''):
     stat_block = stat_block.lower()
 
     if race not in npc_races:
-        print("race not recognized")
-        return
+        race = random.choice(npc_races)
+        print(f"Random race {race}")
+        
 
     if gender not in ["male", "female"]:
-        print("gender not recognized")
-        return
+        gender = random.choice(["male", "female"])
+        print(f"Random gender: {gender}")
 
     name = ""
     ac = 10
@@ -320,12 +321,6 @@ def npc(race = '', gender = '', stat_block = ''):
     challenge = ''
     perception = 10
     stats = 'STR: 10 (+0), DEX: 10 (+0), CON: 10 (+0), INT: 10 (+0), WIS: 10 (+0), CHA: 10 (+0)'
-
-    if gender == '':
-        gender = random.choice(['male', 'female'])
-
-    if race == '':
-        race = random.choice(npc_races)
 
     if race == 'dwarf':
         if gender == 'female':
