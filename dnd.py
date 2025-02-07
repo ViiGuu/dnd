@@ -13,6 +13,10 @@ import argparse
 import sys
 import random
 from dnd_collections import *
+from harptos_calendar import HarptosCalendar
+
+#TODO: Fix command line args for handling the calendar
+calendar = HarptosCalendar.load_from_file()
 
 def d4(num_rolls=1):
     if num_rolls == 1:
