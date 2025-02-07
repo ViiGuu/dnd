@@ -9,12 +9,6 @@
 
 #TODO: Potentially add a time/date tracker (would need to add something like a save file to permanently save and increase time)
 
-#TODO: add onto the treasure reward (magic items tables etc.)
-
-#TODO: add improvised damage table
-
-#TODO: add randomised shops inventory.
-
 import argparse
 import sys
 import random
@@ -280,6 +274,24 @@ def random_magic_item(table, num):
         magic_item = next((item for range, item in magic_items(table).items() if int(range.split("-")[0]) <= random_number <= int(range.split("-")[1])), "No matching magic item")
         print(f"Magic item: {magic_item}")
 
+def convert_dnd_currency(currency, amount_str):
+    """
+    Generated shamelessly with Claude AI
+    """
+    amount = int(amount_str)
+    rates = {"copper": 1, "silver": 10, "electrum": 50, "gold": 100, "platinum": 1000}
+    if currency not in rates:
+        print(f"Invalid currency type: {currency}")
+        return
+        
+    total_copper = amount * rates[currency]
+    print(f"{amount} {currency} is equivalent to:")
+    remaining = total_copper
+    
+    for curr in ["platinum", "gold", "electrum", "silver", "copper"]:
+        qty, remaining = divmod(remaining, rates[curr])
+        if qty > 0:
+            print(f"{qty} {curr} pieces")
 
 def rand_name(names):
     if len(names) > 2:
@@ -427,6 +439,11 @@ def main():
     magic_item_parser.add_argument('table', nargs='?', default="a", help="Specify which table, defaults to A if no argument is given")
     magic_item_parser.add_argument('num', nargs="?", default="1", help="Specify how many items to generate, defaults to 1 if no argument is given")
 
+    currency_parser = subparsers.add_parser('currency')
+    currency_parser.description = 'Shows conversion between currencies'
+    currency_parser.add_argument('coinage', nargs='?', default="", help="Specify coinage type, for example 'copper' ")
+    currency_parser.add_argument('amount', nargs="?", default=0, help="Specify coinage amount")
+
     args = parser.parse_args()
     
     # Call appropriate function based on arguments
@@ -438,6 +455,8 @@ def main():
         trinket()
     elif args.function == 'magic_item':
         random_magic_item(args.table, args.num)
+    elif args.function == 'currency':
+        convert_dnd_currency(args.coinage, args.amount)
     else:
         parser.print_help()
         sys.exit(1)
