@@ -415,6 +415,88 @@ def npc(race = '', gender = '', stat_block = ''):
     print(f"Passive perception {perception}")
     print(f"{stats}\n")
 
+def encounter(num_encounters = 2):
+    social_encounters = [
+        "Traveling merchant with unusual wares",
+        "Lost pilgrim seeking directions",
+        "Wounded adventurer needing aid",
+        "Local hunters warning of dangers ahead",
+        "Wandering entertainer seeking audience",
+        "Refugees fleeing from recent trouble",
+        "Two groups about to start fighting over something"
+    ]
+
+    environmental_features = [
+        "Ancient ruins partially hidden by vegetation",
+        "Natural bridge across dangerous terrain",
+        "Hidden cave entrance",
+        "Fresh water spring with strange properties",
+        "Abandoned campsite with signs of hasty departure",
+        "Unusual rock formation with local legends"
+    ]
+
+    weather_events = [
+        "Sudden heavy fog reducing visibility",
+        "Unseasonable temperature change",
+        "Brief but intense rainfall",
+        "Strong winds carrying strange scents",
+        "Eerie calm with unnatural silence",
+        "Thunder without rain"
+    ]
+
+    tracks_and_signs = [
+        "Fresh monster tracks leading somewhere",
+        "Broken equipment from recent travelers",
+        "Strange markings carved into trees",
+        "Signs of recent battle",
+        "Abandoned supplies worth investigating",
+        "Ritual circle made of stones or items"
+    ]
+
+    minor_events = [
+        "Tree falls blocking the path ahead",
+        "Small landslide reveals something interesting",
+        "Distant sounds of celebration or combat",
+        "Local wildlife behaving strangely",
+        "Strange lights in the distance",
+        "Ground showing signs of recent disturbance"
+    ]
+
+    resource_opportunities = [
+        "Patch of rare herbs or mushrooms",
+        "Game animals in unusual abundance",
+        "Valuable minerals visible in rock face",
+        "Fruit trees with ripe produce",
+        "Abandoned equipment worth salvaging",
+        "Clean water source with fish"
+    ]
+
+    dangerous_encounters = [
+        "Ambushed by a group of enemies",
+        "Monster lair discovered with creatures inside",
+        "Territorial beast defending its territory",
+        "Bandits demanding toll or tribute",
+        "Cursed area causing immediate effects",
+        "Aggressive creature stalking the party"
+    ]
+
+    all_encounters = {
+        "Social": social_encounters,
+        "Environmental": environmental_features,
+        "Weather": weather_events,
+        "Tracks": tracks_and_signs,
+        "Minor Events": minor_events,
+        "Resources": resource_opportunities,
+        "Dangerous": dangerous_encounters
+    }
+
+    categories = random.sample(list(all_encounters.keys()), num_encounters)
+    
+    print("\nRandom encounter:")
+    for category in categories:
+        print(random.choice(all_encounters[category]))
+    print("")
+
 def main():
     parser = argparse.ArgumentParser(description='Create random characters or scenarios with command line arguments')
     subparsers = parser.add_subparsers(dest='function', help='Commands to run')
@@ -444,6 +526,9 @@ def main():
     currency_parser.add_argument('coinage', nargs='?', default="", help="Specify coinage type, for example 'copper' ")
     currency_parser.add_argument('amount', nargs="?", default=0, help="Specify coinage amount")
 
+    encounter_parser = subparsers.add_parser('encounter')
+    encounter_parser.description = 'Generates a random encounter'
+
     args = parser.parse_args()
     
     # Call appropriate function based on arguments
@@ -457,6 +542,8 @@ def main():
         random_magic_item(args.table, args.num)
     elif args.function == 'currency':
         convert_dnd_currency(args.coinage, args.amount)
+    elif args.function == 'encounter':
+        encounter()
     else:
         parser.print_help()
         sys.exit(1)
