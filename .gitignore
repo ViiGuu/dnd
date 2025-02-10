@@ -47,6 +47,7 @@ config.ini  # Or any config file with secrets
 build/
 dist/
 out/
+output/
 
 # Dependency directories (often large)
 node_modules/

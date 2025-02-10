@@ -1,4 +1,16 @@
 import json
+import os
+from pathlib import Path
+import appdirs
+
+def get_calendar_save_path(filename="calendar_save.json"):
+        app_name = "DnD_DM_CLI"
+        app_author = "Viggo_Gustafsson"
+
+        data_dir = appdirs.user_data_dir(app_name, app_author)
+        Path(data_dir).mkdir(parents=True, exist_ok=True)
+
+        return os.path.join(data_dir, filename)
 
 class HarptosCalendar:
     months = [
@@ -198,6 +210,7 @@ class HarptosCalendar:
     
     def save_to_file(self, filename="calendar_save.json"):
         """ Saves the current calendar state to a JSON file. """
+        full_path = get_calendar_save_path(filename)
         data = {
             "year": self.year,
             "month": self.month,
@@ -207,26 +220,26 @@ class HarptosCalendar:
             "is_festival": self.is_festival,
             "festival_name": self.festival_name
         }
-        with open(filename, "w") as file:
+        with open(full_path, "w") as file:
             json.dump(data, file, indent=4)
-        print(f"Calendar saved to {filename}.")
+        print(f"Calendar saved to {full_path}.")
 
     @classmethod
     def load_from_file(cls, filename="calendar_save.json"):
         """ Loads the calendar state from a JSON file. """
+        full_path = get_calendar_save_path(filename)
         try:
-            with open(filename, "r") as file:
+            with open(full_path, "r") as file:
                 data = json.load(file)
             cal = cls(data["year"], data["month"], data["day"], data["hour"])
             cal.absolute_day = data["absolute_day"]
             cal.is_festival = data["is_festival"]
             cal.festival_name = data["festival_name"]
             cal.update_state()  # Ensure everything is consistent
-            # print(f"Calendar loaded from {filename}.")
             return cal
         except FileNotFoundError:
-            print(f"Save file {filename} not found. Creating a new calendar instance.")
-            return cls(1491, 1, 1)
+            print(f"Save file {full_path} not found. Creating a new calendar instance.")
+            return cls(1000, 1, 1)
 
 
 # === Testing the fixed calendar ===

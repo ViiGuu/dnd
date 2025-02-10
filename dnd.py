@@ -535,7 +535,6 @@ def cal_progress_years(years):
     calendar.progress_years(years)
     calendar.save_to_file()
 
-
 def main():
     parser = argparse.ArgumentParser(description='Create random characters or scenarios with command line arguments')
     subparsers = parser.add_subparsers(dest='function', help='Commands to run')
