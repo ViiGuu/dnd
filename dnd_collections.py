@@ -81,13 +81,17 @@ npc_races = ['dwarf',
     #NAMES
 
 dwarf_names_male = [['Tho', 'Thu', 'Gi', 'Du', 'Bro', 'Ki', 'Vi', 'Vin', 'Do', 'Da', 'Mo', 'Gra', 'Mo', 'Arn', 'O', 'Ga', 'Vo'],
-                    ['grym', 'grim', 'brim', 'ror', 'tur', 'li', 'lur', 'im', 'in', 'gun', 'gar', 'dis', 'rak', 'rums', 'ums', 
+                    
+                    ['grym', 'grim', 'brim', 'ror', 'tur', 'li', 'ki', 'vin', 'lur', 'im', 'in', 'gun', 'gar', 'dis', 'rak', 'rums', 'ums', 
                     'rik', 'gern', 'sik', 'dain', 'dal'],
-                    ['ga', 'ka', 'rath', 'ra', 'kha']]
 
-dwarf_names_female = [['Vis', 'Var', 'Hel', 'Ran', 'Maer', 'Am', 'Aes', 'Ael', 'Ar', 'Aud', 'Kath', 'Gur', 'Moir', 'Bir'],
-                      ['la', 'lys', 'lynn', 'ynn', 'ra', 'ta', 'dia', 'lia', 'waen', 'via', 'byr', 'tyn', 'ra', 'dis', 'na', 'nis', 'lita', 'ita'],
-                      ['al', 'en', 'in', 'ae']]
+                    ['ga', 'ka', 'rath', 'ra', 'kha', 'gra']]
+
+dwarf_names_female = [['Vis', 'Var', 'Hel', 'Ran', 'Maer', 'Am', 'Aes', 'Ael', 'Ar', 'Aud', 'Kath', 'Gur', 'Moir', 'Bir', 'Dial', 'Dal', 'Dag'],
+                      
+                      ['la', 'lys', 'lynn', 'ynn', 'ra', 'ta', 'dia', 'lia', 'waen', 'via', 'byr', 'tyn', 'ra', 'dis', 'na', 'nis', 'it'],
+
+                      ['al', 'en', 'in', 'ra']]
 
 human_names_male = [['Ald', 'Jor', 'Ler', 'Sig', 'Er', 'Had', 'Ar', 'Mar', 'Al', 'Ker', 'And', 'Uth', 'Ath', 'Eth',
                     'Ber', 'Cal', 'Dav', 'El', 'Fin', 'Gar', 'Hal', 'Ian', 'Kai', 'Lor', 'Ra'],
@@ -95,43 +99,71 @@ human_names_male = [['Ald', 'Jor', 'Ler', 'Sig', 'Er', 'Had', 'Ar', 'Mar', 'Al',
                     ['ric', 'rim', 'nar', 'an', 'en', 'er', 'on', 'ner', 'reif', 'rian', 'mund', 'ret', 'ron', 'nam',
                     'ken', 'den', 'van', 'din', 'lon', 'gan', 'ran', 'rian', 'ath', 'a', 'e', 'i', 'o'],
 
-                    ['dra', 'ka', 'nir', 'ur', 'na',
-                    'la', 'ge', 'er', 'an', 'en', 'on']]
+                    ['dra', 'ka', 'nir', 'ur', 'na', 'la', 'ge', 'er', 'an', 'en', 'on']]
 
-human_names_female = [['Kat', 'Kit', 'El', 'Jan', 'Ja', 'Lea', 'Ya', 'Yan', 'Sa', 'Ai', 'Ei', 'Sar', 'San', 'Io', 'Al', 'Eld', 'Cael', 'Ae'],
-                    ['nie', 'na', 'lyn', 'wyn', 'wen', 'lia', 'die', 'ra'],
-                    ['no', 'ro', 'do', 'a']]
+human_names_female = [
+    ['Kat', 'El', 'Jan', 'Ja', 'Lea', 'Ya', 'Yan', 'Sa', 'Ai', 'Ei', 
+     'Sar', 'San', 'Io', 'Al', 'Eld', 'Cael', 'Ae', 'No', 'Lyr', 'Mel', 'Cel', 
+     'Ven', 'Syl'],
+
+    ['nie', 'na', 'lyn', 'wyn', 'wen', 'lia', 'die', 'ra', 'lin', 'tia', 'sia'],
+
+    ['no', 'ro', 'do', 'ra', 'sel', 'dor', 'bel', 'rin']
+]
 
 elf_names_male = [
-    ['Ad', 'Ael', 'Ald', 'Ar', 'Ara', 'Aus', 'Ber', 'Bei', 'Car', 'En', 'Erd', 'Ere', 'Gal', 'Had', 'Hei', 'Hi',
-     'Imm', 'Ive', 'Lau', 'Min', 'Pae', 'Per', 'Qua', 'Ria', 'Rol', 'Sov', 'Thal', 'Ther', 'Var'],
+    ['Ad', 'Ae', 'Ala', 'Ar', 'Ara', 'Bera', 'Be', 'Care', 'Eno', 'Ere',
+     'Gala', 'Hade', 'Hei', 'Hi', 'Imma', 'Ive', 'Lau', 'Mina', 'Pae', 'Pere', 'Qua', 'Ria',
+     'Rola', 'Sova', 'Thala', 'There', 'Vana'],
 
-    ['ran', 'ar', 'il', 'is', 'o', 'an', 'en', 'ion'],
+    ['ran', 'nran', 'lis', 'liss', 'ndil', 'dor', 'ndor', 'mir', 'nir', 'thir', 'dir', 'ndir', 'rion', 'lith'],
 
-    ['ram', 'am', 'an', 'el', 'ian', 'ric', 'lis', 'dan', 'ai', 'en', 'ion', 'len', 'liss', 'ior', 'vol', 'ren', 'dar', 'rel']
+    ['na', 'ni', 'da', 'vo', 'da', 'de', 'si', 'no']
 ]
+
 
 elf_names_female = [
-    ['A', 'E', 'Ad', 'Al', 'Anas', 'And', 'Ant', 'Beth', 'Bir', 'Cae', 'Dru', 'En', 'Fel', 'Iel', 'Jel', 'Key', 'Lesh', 
-     'Li', 'Mer', 'Mi', 'Na', 'Quel', 'Quil', 'Sar', 'Shan', 'Shaev', 'Sil', 'Thei', 'Thi', 'Vad', 'Val', 'Xan'],
-    ['rie', 'thaea', 'ianna', 'inua', 'na', 'nia', 'athe', 'ath', 'asta', 'ia', 'the', 'phia', 'ra', 'la', 'in', 'anna'],
-    ['stas', 'laste', 'naste', 'ryn', 'rel', 'lyn', 'lia', 'na', 'lial', 'ne', 'le', 'a', 'e', 'nan', 'lan', 'liel', 'riele', 'va',  've', 'len', 'lui']
+    # Prefixes – choose soft, lyrical syllables that mirror the male set.
+    ['Ad', 'Ae', 'Ala', 'Ara', 'Bera', 'Be', 'Cae', 'Dru', 'Eno', 'Ere',
+     'Gala', 'Hade', 'Hei', 'Iel', 'Jel', 'Lesh', 'Mer', 'Quel', 'Quil',
+     'Sar', 'Shan', 'Shaev', 'Sil', 'Thei', 'Vad', 'Val', 'Xan', 'Ela', 'Aria'],
+
+    # Suffixes – only parts beginning with consonants to ensure a clean join.
+    ['rie', 'thaea', 'na', 'nia', 'the', 'phia', 'ra', 'la'],
+
+    # Middle Parts – short syllables that begin with a consonant.
+    ['stas', 'laste', 'naste', 'ryn', 'rel', 'lyn', 'lia', 'na', 'lial',
+     'ne', 'le', 'nan', 'lan', 'liel', 'riele', 'va', 've', 'len', 'lui']
 ]
 
-halfling_names_male = [['Al', 'An', 'Ca', 'Cor', 'El', 'Er', 'Fin', 'Gar', 'Lin', 'Lyl', 'Mer', 'Mil', 'Os', 'Perr', 'Re', 'Rosc', 'Well'],
-                    ['ton', 'der', 'de', 'rin', 'don', 'rich', 'nan', 'dal', 'ric', 'born', 'rin', 'by']]
-halfling_names_female = [['Andr', 'Br', 'Call', 'Cor', 'Euphem', 'Jill', 'Kithr', 'Lavin', 'Lidd', 'Merl', 'Nedd', 'Pael', 'Port', 'Seraph',
-                    'Shaen', 'Tr', 'Van', 'Vern'],
-                    ['y', 'ee', 'ie', 'a', 'ia', 'ian', 'i', 'ina', 'ini']]
 
-gnome_names_male = [['Alst', 'Al', 'Bodd', 'Br', 'Burg', 'Dimb', 'Eld', 'Erk', 'Fonk', 'Bonk', 'Fr', 'Gerb', 'Gorb', 'Gimbl', 'Glim',
-                    'Jebedd', 'Kell', 'Namf', 'Orr', 'Roond', 'Seeb', 'Sindr', 'Warr', 'Wre', 'Zo'],
-                    ['on', 'yn', 'ock', 'occ', 'ell', 'le', 'in', 'oodle', 'o', 'e', 'im', 'i', 'enn']]
-gnome_names_female = [['Bimp', 'Breen', 'Caram', 'Carl', 'Don', 'Duvam', 'Elly', 'Lill', 'Loop', 'Boop', 'Bopp', 'Lorill', 'Mard', 'Niss',
-                    'Od', 'Orl', 'Royw', 'Sham', 'Tan', 'Wayw', "Zann", 'Zap'],
-                    ['nottin', 'a', 'y', 'ie', 'ip', 'in', 'ella', 'il', 'jobell', 'bell', 'wick', 'i', 'mottin', 'illa', 'nab', 'ix', 'wyn',
-                    'wocket']]
+halfling_names_male = [
+    ['Al', 'An', 'Ca', 'Cor', 'El', 'Er', 'Fin', 'Gar', 'Lin', 'Lyl', 
+     'Mer', 'Mil', 'Os', 'Perr', 'Ren', 'Rosc', 'Well', 'Bo', 'Dor'],
+     
+    ['ton', 'der', 'rin', 'don', 'rich', 'nan', 'dal', 'ric', 'born', 'by']
+]
 
+halfling_names_female = [
+    ['Andr', 'Br', 'Call', 'Cor', 'Euph', 'Jill', 'Kithr', 'Lavin', 'Lidd',
+     'Merl', 'Nedd', 'Pael', 'Port', 'Seraph', 'Shaen', 'Tr', 'Van', 'Vern', 'Ros', 'Bell'],
+     
+    ['y', 'ie', 'a', 'ia', 'ina', 'ini']
+]
+
+
+gnome_names_male = [
+    ['Alst', 'Al', 'Bod', 'Bor', 'Burg', 'Dimp', 'Bimp', 'Eld', 'Erk', 'Fonk', 'Bonk',
+     'Frob', 'Gerb', 'Gorb', 'Goom', 'Gim', 'Gimp', 'Glim', 'Jebedd', 'Kell', 'Namf', 'Orr',
+     'Roob', 'Seeb', 'Sin', 'Warr', 'Wrex', 'Zobb', 'Zonk', 'Fizz', 'Tink', 'Klink', 'Bim'],
+
+    ['on', 'in', 'ock', 'doc', 'ell', 'le', 'in', 'oodle', 'noodle', 'o', 'y',
+     'enn', 'ab', 'ik', 'ix', 'plix', 'oggle', 'izz']
+]
+gnome_names_female = [['Bimp', 'Breen', 'Caram', 'Cal', 'Don', 'Duvam', 'Elly', 'Lill', 'Loop', 'Boop', 'Bopp', 'Loril', 'Mar', 'Niss',
+                    'Odd', 'Orl', 'Roiw', 'Sham', 'Tan', 'Wayw', "Zann", 'Zap', 'Fonk', 'Glim', 'Zonk', 'Fizz'],
+                    ['nottin', 'a', 'y', 'ie', 'in', 'ella', 'il', 'abell', 'bell', 'wick', 'i', 'mottin', 'illa', 'nab', 'ix', 'wyn',
+                    'wocket', 'ette', 'oggle', 'izz']]
     #TREASURE
 
 gemstones = {
