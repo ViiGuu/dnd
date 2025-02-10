@@ -351,6 +351,8 @@ def npc(race = '', gender = '', stat_block = ''):
     challenge = ''
     perception = 10
     stats = 'STR: 10 (+0), DEX: 10 (+0), CON: 10 (+0), INT: 10 (+0), WIS: 10 (+0), CHA: 10 (+0)'
+    traits = []
+    spells = []
 
     if race == 'dwarf':
         if gender == 'female':
@@ -358,6 +360,9 @@ def npc(race = '', gender = '', stat_block = ''):
         else:
             name = rand_name(dwarf_names_male)
         speed -= 5
+        traits.append("Darkvision 60ft")
+        traits.append("Resistance vs poison damage")
+        traits.append("Advantage on saving throws vs poison")
 
     if race == 'human':
         if gender == 'female':
@@ -370,6 +375,8 @@ def npc(race = '', gender = '', stat_block = ''):
             name = rand_name(elf_names_female)
         else:
             name = rand_name(elf_names_male)
+        traits.append("Advantage on saving throws vs charmed")
+        traits.append("Immunity vs magical sleep")
 
     if race == 'halfling':
         if gender == 'female':
@@ -377,6 +384,8 @@ def npc(race = '', gender = '', stat_block = ''):
         else:
             name = rand_name(halfling_names_male)
         speed -= 5
+        traits.append("Advantage on saving throws vs frightened")
+        traits.append("Can reroll natural 1 (must use new results)")
 
     if race == 'gnome':
         if gender == 'female':
@@ -384,6 +393,7 @@ def npc(race = '', gender = '', stat_block = ''):
         else:
             name = rand_name(gnome_names_male)
         speed -= 5
+        traits.append("Advantage on Intelligence, Wisdom, and Charisma saving throws against magic")
 
     if stat_block == 'bandit':
         ac = 12
@@ -407,7 +417,10 @@ def npc(race = '', gender = '', stat_block = ''):
     if stat_block == 'acolyte':
         hp = max((d8(2)), 9)
         weapon = 'Club (+2 to hit, 5ft range, 1d4) bludgeoning damage'
-        stats = 'STR: 10 (+0), DEX: 10 (+0), CON: 10 (+0), INT: 10 (+0), WIS: 14 (+2), CHA: 11 (+0)\n\nSpellcasting: Wisdom. Spell Save DC: 12. +4 to hit.\nCantrips: light, sacred flame, thaumaturgy.\n1st level (3 slots): bless, cure wounds, sanctuary'
+        stats = 'STR: 10 (+0), DEX: 10 (+0), CON: 10 (+0), INT: 10 (+0), WIS: 14 (+2), CHA: 11 (+0)'
+        spells.append("Spellcasting: Wisdom. Spell Save DC: 12. +4 to hit.")
+        spells.append("Cantrips: light, sacred flame, thaumaturgy.")
+        spells.append("1st level (3 slots): bless, cure wounds, sanctuary")
         challenge = '1/4 (50 XP)'
         perception = 12
 
@@ -415,7 +428,8 @@ def npc(race = '', gender = '', stat_block = ''):
         hp = max((d8(2)), 9)
         weapon = 'Scimitar (+3 to hit, 5ft range, 1d6 + 1 slashing damage)'
         ac = 12
-        stats = 'STR: 11 (+0), DEX: 12 (+1), CON: 10 (+0), INT: 10 (+0), WIS: 11 (+0), CHA: 10 (+0)\n\n Dark Devotion: Saving throws vs charmed or frightened'
+        stats = 'STR: 11 (+0), DEX: 12 (+1), CON: 10 (+0), INT: 10 (+0), WIS: 11 (+0), CHA: 10 (+0)'
+        traits.append("Dark Devotion: Saving throws vs charmed or frightened")
         challenge = '1/8 (25 XP)'
 
     if stat_block == 'guard':
@@ -439,6 +453,11 @@ def npc(race = '', gender = '', stat_block = ''):
     print(f"Challenge rating {challenge}")
     print(f"Passive perception {perception}")
     print(f"{stats}\n")
+    for trait in traits:
+        print(trait)
+    print("")
+    for spell in spells:
+        print(spell)
 
 def encounter(num_encounters = 2):
     social_encounters = [
