@@ -7,8 +7,6 @@
 
 #TODO: add a conditions lookup (i.e conditions prone will return a description of prone.)
 
-#TODO: Potentially add a time/date tracker (would need to add something like a save file to permanently save and increase time)
-
 import argparse
 import sys
 import random
@@ -300,7 +298,15 @@ def convert_dnd_currency(currency, amount_str):
 def rand_name(names):
     if len(names) > 2:
         if random.randint(0, 1) == 1:
-             return random.choice(names[0]) + random.choice(names[2]) + random.choice(names[1])
+            prefix = random.choice(names[0])
+            middle = random.choice(names[2])
+            suffix = random.choice(names[1])
+            while prefix.lower() == middle.lower() or middle.lower() == suffix.lower(): 
+                middle = random.choice(names[2])
+            while prefix.lower() == suffix.lower() or middle.lower() == suffix.lower():
+                suffix = random.choice(names[1])
+            return prefix + middle + suffix
+        
     return random.choice(names[0]) + random.choice(names[1])
 
 def npc(race = '', gender = '', stat_block = ''):
@@ -308,13 +314,29 @@ def npc(race = '', gender = '', stat_block = ''):
     stat_block = stat_block.lower()
 
     if race not in npc_races:
-        race = random.choice(npc_races)
-        print(f"Random race {race}")
+        if race == '':
+            race = random.choice(npc_races)
+            print(f"Random race {race}")
+        else:
+            print("Race not recognised")
+            return
         
 
     if gender not in ["male", "female"]:
-        gender = random.choice(["male", "female"])
-        print(f"Random gender: {gender}")
+        if gender == '':
+            gender = random.choice(["male", "female"])
+            print(f"Random gender: {gender}")
+        else:
+            print("Gender not recognised")
+            return
+
+    if stat_block not in npc_stat_blocks:
+        if stat_block == '':
+            stat_block = random.choice(npc_stat_blocks)
+            print(f"Random stat block: {stat_block}")
+        else:
+            print("Stat block not recognised")
+            return
 
     name = ""
     ac = 10

@@ -1,6 +1,8 @@
 
     #NPC FEATURES
 
+npc_stat_blocks = ['bandit', 'commoner', 'acolyte', 'cultist', 'guard']
+
 npc_appearance = ['Distinctive jewelry, earrings, necklace, circlet, bracelets',
                   'Piercings',
                   'Flamboyant or outlandish clothes',
@@ -87,12 +89,14 @@ dwarf_names_female = [['Vis', 'Var', 'Hel', 'Ran', 'Maer', 'Am', 'Aes', 'Ael', '
                       ['la', 'lys', 'lynn', 'ynn', 'ra', 'ta', 'dia', 'lia', 'waen', 'via', 'byr', 'tyn', 'ra', 'dis', 'na', 'nis', 'lita', 'ita'],
                       ['al', 'en', 'in', 'ae']]
 
-human_names_male = [['Ald', 'Jor', 'Ler', 'Sig', 'Ever', 'Had', 'Ar', 'Mar', 'Al', 'Ker', 'And', 'Uth', 'Ath', 'Eth',
-                    'Bren', 'Cal', 'Dav', 'El', 'Fin', 'Gar', 'Hal', 'Ian', 'Kai', 'Lor', 'Ra'], #AI 
-                    ['ric', 'rim', 'nar', 'ner', 'reif', 'rian', 'mund', 'ret', 'ron', 'nam',
-                    'ken', 'den', 'van', 'in', 'lon', 'gan', 'ran', 'ian'], #AI
-                    ['dra', 'ka', 'ath', 'nir', 'ur', 'na', 'a', 'e', 'i', 'o',
-                    'la', 'ge', 'er', 'an', 'en', 'in', 'ien', 'on']] #AI
+human_names_male = [['Ald', 'Jor', 'Ler', 'Sig', 'Er', 'Had', 'Ar', 'Mar', 'Al', 'Ker', 'And', 'Uth', 'Ath', 'Eth',
+                    'Ber', 'Cal', 'Dav', 'El', 'Fin', 'Gar', 'Hal', 'Ian', 'Kai', 'Lor', 'Ra'],
+
+                    ['ric', 'rim', 'nar', 'an', 'en', 'er', 'on', 'ner', 'reif', 'rian', 'mund', 'ret', 'ron', 'nam',
+                    'ken', 'den', 'van', 'din', 'lon', 'gan', 'ran', 'rian', 'ath', 'a', 'e', 'i', 'o'],
+
+                    ['dra', 'ka', 'nir', 'ur', 'na',
+                    'la', 'ge', 'er', 'an', 'en', 'on']]
 
 human_names_female = [['Kat', 'Kit', 'El', 'Jan', 'Ja', 'Lea', 'Ya', 'Yan', 'Sa', 'Ai', 'Ei', 'Sar', 'San', 'Io', 'Al', 'Eld', 'Cael', 'Ae'],
                     ['nie', 'na', 'lyn', 'wyn', 'wen', 'lia', 'die', 'ra'],
