@@ -2,6 +2,7 @@
 
 #auto-py-to-exe
 
+#PROBABLY REDUNDANT because of the online generator (which might also be more user-friendly than a CLI)
 #TODO: add a combat encounter challenge rating table (dm guide p. 82)
     # calculate easy / medium / hard / deadly encounter XP based on character levels (and multiply based on num of monsters)
 
@@ -13,7 +14,6 @@ import random
 from dnd_collections import *
 from harptos_calendar import HarptosCalendar
 
-#TODO: Fix command line args for handling the calendar
 calendar = HarptosCalendar.load_from_file()
 
 def d4(num_rolls=1):

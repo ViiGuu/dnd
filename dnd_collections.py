@@ -123,15 +123,12 @@ elf_names_male = [
 
 
 elf_names_female = [
-    # Prefixes – choose soft, lyrical syllables that mirror the male set.
     ['Ad', 'Ae', 'Ala', 'Ara', 'Bera', 'Be', 'Cae', 'Dru', 'Eno', 'Ere',
      'Gala', 'Hade', 'Hei', 'Iel', 'Jel', 'Lesh', 'Mer', 'Quel', 'Quil',
      'Sar', 'Shan', 'Shaev', 'Sil', 'Thei', 'Vad', 'Val', 'Xan', 'Ela', 'Aria'],
 
-    # Suffixes – only parts beginning with consonants to ensure a clean join.
     ['rie', 'thaea', 'na', 'nia', 'the', 'phia', 'ra', 'la'],
 
-    # Middle Parts – short syllables that begin with a consonant.
     ['stas', 'laste', 'naste', 'ryn', 'rel', 'lyn', 'lia', 'na', 'lial',
      'ne', 'le', 'nan', 'lan', 'liel', 'riele', 'va', 've', 'len', 'lui']
 ]
