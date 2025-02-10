@@ -307,7 +307,11 @@ def rand_name(names):
                 suffix = random.choice(names[1])
             return prefix + middle + suffix
         
-    return random.choice(names[0]) + random.choice(names[1])
+    prefix = random.choice(names[0])
+    suffix = random.choice(names[1])
+    while prefix.lower() == suffix.lower():
+        suffix = random.choice(names[1])
+    return prefix + suffix
 
 def npc(race = '', gender = '', stat_block = ''):
 
