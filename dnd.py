@@ -497,10 +497,7 @@ def encounter(num_encounters = 2):
     print("")
 
 def cal_set(year, month, day, hour):
-    calendar.year = year
-    calendar.month = month
-    calendar.day = day
-    calendar.hour = hour
+    calendar = HarptosCalendar(year, month, day, hour)
     calendar.update_state()
     calendar.save_to_file()
     print(f"Calendar set to {calendar}")
