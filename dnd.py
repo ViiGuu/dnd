@@ -496,6 +496,46 @@ def encounter(num_encounters = 2):
         print(random.choice(all_encounters[category]))
     print("")
 
+def cal_set(year, month, day, hour):
+    calendar.year = year
+    calendar.month = month
+    calendar.day = day
+    calendar.hour = hour
+    calendar.update_state()
+    calendar.save_to_file()
+    print(f"Calendar set to {calendar}")
+
+def cal_progress_time(time_type, amount):
+    match time_type:
+        case 'hours':
+            cal_progress_hours(amount)
+        case 'days':
+            cal_progress_days(amount)
+        case 'months':
+            cal_progress_months(amount)
+        case 'years':
+            cal_progress_years(amount)
+        case _:
+            print("Unknown argument for progressing time")
+
+
+def cal_progress_hours(hours):
+    calendar.progress_hours(hours)
+    calendar.save_to_file()
+
+def cal_progress_days(days):
+    calendar.progress_days(days)
+    calendar.save_to_file()
+
+def cal_progress_months(months):
+    calendar.progress_months(months)
+    calendar.save_to_file()
+
+def cal_progress_years(years):
+    calendar.progress_years(years)
+    calendar.save_to_file()
+
+
 def main():
     parser = argparse.ArgumentParser(description='Create random characters or scenarios with command line arguments')
     subparsers = parser.add_subparsers(dest='function', help='Commands to run')
@@ -528,9 +568,24 @@ def main():
     encounter_parser = subparsers.add_parser('encounter')
     encounter_parser.description = 'Generates a random encounter'
 
+        #time parsers
+    time_parser = subparsers.add_parser('time')
+    time_parser.description = 'Used to set and progress time in your campaign, using the Harptos calendar. Uses automatic saving.'
+    time_subparsers = time_parser.add_subparsers(dest="time_subcommand", required=False)
+
+    set_time_parser = time_subparsers.add_parser('set')
+    set_time_parser.add_argument('year', type=int, nargs='?', default=0)
+    set_time_parser.add_argument('month', type=int, nargs='?', default=0)
+    set_time_parser.add_argument('day', type=int, nargs='?', default=0)
+    set_time_parser.add_argument('hour', type=int, nargs='?', default=0)
+
+    add_time_parser = time_subparsers.add_parser('add')
+    add_time_parser.add_argument('time_type', nargs='?', default=0)
+    add_time_parser.add_argument('amount', type=int, nargs='?', default=0)
+    
+
     args = parser.parse_args()
     
-    # Call appropriate function based on arguments
     if args.function == 'npc':
         npc(args.race, args.gender, args.stat_block)
     elif args.function == 'treasure':
@@ -543,6 +598,13 @@ def main():
         convert_dnd_currency(args.coinage, args.amount)
     elif args.function == 'encounter':
         encounter()
+    elif args.function == 'time':
+        if args.time_subcommand == 'set':
+             cal_set(args.year, args.month, args.day, args.hour)
+        elif args.time_subcommand == 'add':
+            cal_progress_time(args.time_type, args.amount)
+        else:
+            print(calendar)
     else:
         parser.print_help()
         sys.exit(1)

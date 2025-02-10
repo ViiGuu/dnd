@@ -1,0 +1,79 @@
+# Compiled source code
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.out
+*.app
+
+# Temporary files created by editors and tools
+*~
+.#*
+*.swp
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Logs and debug files
+*.log
+*.trace
+*.dump
+*.stackdump
+
+# Package files
+*.zip
+*.tar
+*.gz
+*.tgz
+*.rar
+*.7z
+
+# OS-specific files
+.idea/
+.vscode/
+.settings/
+__pycache__/
+*.pyc
+
+# Sensitive information - be VERY careful with these!  Never commit these!
+*.key
+*.pem
+*.pfx
+config.ini  # Or any config file with secrets
+.env       # Environment variables file
+
+# Build output directories
+build/
+dist/
+out/
+
+# Dependency directories (often large)
+node_modules/
+vendor/
+.venv/  # Virtual environments
+
+# Installer files
+*.msi
+*.dmg
+
+# Git-specific files (sometimes you might want to ignore these)
+.git/
+
+# Large files (consider using Git LFS for these instead of ignoring)
+*.psd  # Photoshop files
+*.ai   # Illustrator files
+*.iso  # Disk images
+*.vmdk # Virtual machine disks
+
+# IDE specific files
+.idea/*
+.vscode/*
+*.suo
+*.sln
+*.user
+*.userprefs
+*.iws
+
+# And any other files you don't want to track in Git
+calendar_save.json

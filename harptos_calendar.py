@@ -222,7 +222,7 @@ class HarptosCalendar:
             cal.is_festival = data["is_festival"]
             cal.festival_name = data["festival_name"]
             cal.update_state()  # Ensure everything is consistent
-            print(f"Calendar loaded from {filename}.")
+            # print(f"Calendar loaded from {filename}.")
             return cal
         except FileNotFoundError:
             print(f"Save file {filename} not found. Creating a new calendar instance.")
