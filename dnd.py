@@ -466,8 +466,14 @@ def encounter(num_encounters = 2):
         "Wounded adventurer needing aid",
         "Local hunters warning of dangers ahead",
         "Wandering entertainer seeking audience",
-        "Refugees fleeing from recent trouble",
-        "Two groups about to start fighting over something"
+        "Characters fleeing from recent trouble",
+        "Two groups about to start fighting over something",
+        "Mysterious wanderer with a cryptic message",
+        "A pair of characters locked in a tense conversation",
+        "A group of characters debating a peculiar rumor",
+        "A solitary traveler offering ominous warnings",
+        "An exile searching for redemption",
+        "A dirty man wearing just his pants, sleeping on the ground"
     ]
 
     environmental_features = [
@@ -476,7 +482,12 @@ def encounter(num_encounters = 2):
         "Hidden cave entrance",
         "Fresh water spring with strange properties",
         "Abandoned campsite with signs of hasty departure",
-        "Unusual rock formation with local legends"
+        "Unusual rock formation",
+        "Mysterious stone circle on a barren plain",
+        "Weathered monolith carved with enigmatic symbols",
+        "A subtle scar in the landscape hinting at ancient upheaval",
+        "A series of naturally aligned pillars forming a path",
+        "Oddly arranged boulders that seem out of place"
     ]
 
     weather_events = [
@@ -485,7 +496,9 @@ def encounter(num_encounters = 2):
         "Brief but intense rainfall",
         "Strong winds carrying strange scents",
         "Eerie calm with unnatural silence",
-        "Thunder without rain"
+        "Thunder without rain",
+        "Gusts of wind carrying faint, otherworldly whispers",
+        "A rapid shift from bright sunlight to dark clouds without warning"
     ]
 
     tracks_and_signs = [
@@ -494,7 +507,12 @@ def encounter(num_encounters = 2):
         "Strange markings carved into trees",
         "Signs of recent battle",
         "Abandoned supplies worth investigating",
-        "Ritual circle made of stones or items"
+        "Ritual circle made of stones or items",
+        "Faint, unidentifiable footprints leading off the beaten path",
+        "A scattering of personal belongings abandoned in haste",
+        "Subtle disturbances in the terrain suggesting large footsteps",
+        "Cryptic symbols etched into stone, worn by time",
+        "Marks that could be natural or deliberately made"
     ]
 
     minor_events = [
@@ -503,7 +521,10 @@ def encounter(num_encounters = 2):
         "Distant sounds of celebration or combat",
         "Local wildlife behaving strangely",
         "Strange lights in the distance",
-        "Ground showing signs of recent disturbance"
+        "Ground showing signs of recent disturbance",
+        "A low, rumbling tremor passes through the ground",
+        "A solitary, unaccounted-for object appears along the path",
+        "A momentary lapse in the usual ambient sounds, leaving eerie silence"
     ]
 
     resource_opportunities = [
@@ -512,7 +533,11 @@ def encounter(num_encounters = 2):
         "Valuable minerals visible in rock face",
         "Fruit trees with ripe produce",
         "Abandoned equipment worth salvaging",
-        "Clean water source with fish"
+        "Clean water source with fish",
+        "A cluster of rare, vibrant minerals embedded in rock",
+        "An unexpected formation of crystal-like deposits",
+        "A patch of soil that appears unusually rich and fertile",
+        "Signs of a long-forgotten cache of supplies or artifacts"
     ]
 
     dangerous_encounters = [
@@ -521,7 +546,10 @@ def encounter(num_encounters = 2):
         "Territorial beast defending its territory",
         "Bandits demanding toll or tribute",
         "Cursed area causing immediate effects",
-        "Aggressive creature stalking the party"
+        "Aggressive creature stalking the party",
+        "A sudden trap or environmental hazard forces quick action",
+        "A swarm of aggressive, tiny beasts emerges unexpectedly",
+        "A lone, menacing figure lurks in the shadows, watching silently"
     ]
 
     all_encounters = {
