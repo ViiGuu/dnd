@@ -86,158 +86,161 @@ def random_money_reward(challenge_rating, treasure, individual_or_hoard, num):
     else:
        return random_money_reward(challenge_rating, treasure, individual_or_hoard, num - 1)
 
+def hoard_gem_art_cr_0_4(die, gems_art):
+    if 7 <= die <= 16:
+        if '10' not in gems_art:
+            gems_art['10'] = []
+        for _ in range(0, d6(2)):
+            gems_art['10'].append(random.choice(gemstones[10]))
+
+    elif 17 <= die <= 26:
+        if '25' not in gems_art:
+            gems_art['25'] = []
+        for _ in range(0, d4(2)):
+            gems_art['25'].append(random.choice(art_objects[25]))
+
+    elif 27 <= die <= 36:
+        if '50' not in gems_art:
+            gems_art['50'] = []
+        for _ in range(0, d6(2)):
+            gems_art['50'].append(random.choice(gemstones[50]))
+
+    elif 37 <= die <= 44:
+        if '10' not in gems_art:
+            gems_art['10'] = []
+        if 'Items' not in gems_art:
+            gems_art['Items'] = []
+        for _ in range(0, d6(2)):
+            gems_art['10'].append(random.choice(gemstones[10]))
+        for _ in range(0, d6()):
+            gems_art['Items'].append(random.choice(list(magic_items_a.values()))) #magic items are dicts
+
+    elif 45 <= die <= 52:
+        if '25' not in gems_art:
+            gems_art['25'] = []
+        if 'Items' not in gems_art:
+            gems_art['Items'] = []
+        for _ in range(d4(2)):
+            gems_art['25'].append(random.choice(art_objects[25]))
+        for _ in range(d6()):
+            gems_art['Items'].append(random.choice(list(magic_items_a.values())))
+
+    elif 53 <= die <= 60:
+        if '50' not in gems_art:
+            gems_art['50'] = []
+        if 'Items' not in gems_art:
+            gems_art['Items'] = []    
+        for _ in range(d6(2)):
+            gems_art['50'].append(random.choice(gemstones[50]))
+        for _ in range(d6()):
+            gems_art['Items'].append(random.choice(list(magic_items_a.values())))
+
+    elif 61 <= die <= 65:
+        if '10' not in gems_art:
+            gems_art['10'] = []
+        if 'Items' not in gems_art:
+            gems_art['Items'] = []
+        for _ in range(d6(2)):
+            gems_art['10'].append(random.choice(gemstones[10]))
+        for _ in range(d4()):
+            gems_art['Items'].append(random.choice(list(magic_items_b.values())))
+
+    elif 66 <= die <= 70:
+        if '25' not in gems_art:
+            gems_art['25'] = []
+        if 'Items' not in gems_art:
+            gems_art['Items'] = []
+        for _ in range(d4(2)):
+            gems_art['25'].append(random.choice(art_objects[25]))
+        for _ in range(d4()):
+            gems_art['Items'].append(random.choice(list(magic_items_b.values())))
+
+    elif 71 <= die <= 75:
+        if '50' not in gems_art:
+            gems_art['50'] = []
+        if 'Items' not in gems_art:
+            gems_art['Items'] = []
+        for _ in range(d6(2)):
+            gems_art['50'].append(random.choice(gemstones[50]))
+        for _ in range(d4()):
+            gems_art['Items'].append(random.choice(list(magic_items_b.values())))
+
+    elif 76 <= die <= 78:
+        if '10' not in gems_art:
+            gems_art['10'] = []
+        if 'Items' not in gems_art:
+            gems_art['Items'] = []
+        for _ in range(d6(2)):
+            gems_art['10'].append(random.choice(gemstones[10]))
+        for _ in range(d4()):
+            gems_art['Items'].append(random.choice(list(magic_items_c.values())))
+
+    elif 79 <= die <= 80:
+        if '25' not in gems_art:
+            gems_art['25'] = []
+        if 'Items' not in gems_art:
+            gems_art['Items'] = []
+        for _ in range(d4(2)):
+            gems_art['25'].append(random.choice(art_objects[25]))
+        for _ in range(d4()):
+            gems_art['Items'].append(random.choice(list(magic_items_c.values())))
+
+    elif 81 <= die <= 85:
+        if '50' not in gems_art:
+            gems_art['50'] = []
+        if 'Items' not in gems_art:
+            gems_art['Items'] = []
+        for _ in range(d6(2)):
+            gems_art['50'].append(random.choice(gemstones[50]))
+        for _ in range(d4()):
+            gems_art['Items'].append(random.choice(list(magic_items_c.values())))
+
+    elif 86 <= die <= 92:
+        if '25' not in gems_art:
+            gems_art['25'] = []
+        if 'Items' not in gems_art:
+            gems_art['Items'] = []
+        for _ in range(d4(2)):
+            gems_art['25'].append(random.choice(art_objects[25]))
+        for _ in range(d4()):
+            gems_art['Items'].append(random.choice(list(magic_items_f.values())))
+
+    elif 93 <= die <= 97:
+        if '50' not in gems_art:
+            gems_art['50'] = []
+        if 'Items' not in gems_art:
+            gems_art['Items'] = []
+        for _ in range(d6(2)):
+            gems_art['50'].append(random.choice(gemstones[50]))
+        for _ in range(d4()):
+            gems_art['Items'].append(random.choice(list(magic_items_f.values())))
+
+    elif 98 <= die <= 99:
+        if '25' not in gems_art:
+            gems_art['25'] = []
+        if 'Items' not in gems_art:
+            gems_art['Items'] = []
+        for _ in range(d4(2)):
+            gems_art['25'].append(random.choice(art_objects[25]))
+        gems_art['Items'].append(random.choice(list(magic_items_g.values())))
+
+    elif die == 100:
+        if '50' not in gems_art:
+            gems_art['50'] = []
+        if 'Items' not in gems_art:
+            gems_art['Items'] = []
+        for _ in range(d6(2)):
+            gems_art['50'].append(random.choice(gemstones[50]))
+        gems_art['Items'].append(random.choice(list(magic_items_g.values())))
+    
+    return gems_art
+
 def gem_art_reward(challenge_rating, gems_art):
 
     die = d100()
     
     if 0 <= challenge_rating <= 4:
-        if 7 <= die <= 16:
-            if '10' not in gems_art:
-                gems_art['10'] = []
-            for _ in range(0, d6(2)):
-                gems_art['10'].append(random.choice(gemstones[10]))
-
-        elif 17 <= die <= 26:
-            if '25' not in gems_art:
-                gems_art['25'] = []
-            for _ in range(0, d4(2)):
-                gems_art['25'].append(random.choice(art_objects[25]))
-
-        elif 27 <= die <= 36:
-            if '50' not in gems_art:
-                gems_art['50'] = []
-            for _ in range(0, d6(2)):
-                gems_art['50'].append(random.choice(gemstones[50]))
-
-        elif 37 <= die <= 44:
-            if '10' not in gems_art:
-                gems_art['10'] = []
-            if 'Items' not in gems_art:
-                gems_art['Items'] = []
-            for _ in range(0, d6(2)):
-                gems_art['10'].append(random.choice(gemstones[10]))
-            for _ in range(0, d6()):
-                gems_art['Items'].append(random.choice(list(magic_items_a.values()))) #magic items are dicts
-
-        elif 45 <= die <= 52:
-            if '25' not in gems_art:
-                gems_art['25'] = []
-            if 'Items' not in gems_art:
-                gems_art['Items'] = []
-            for _ in range(d4(2)):
-                gems_art['25'].append(random.choice(art_objects[25]))
-            for _ in range(d6()):
-                gems_art['Items'].append(random.choice(list(magic_items_a.values())))
-
-        elif 53 <= die <= 60:
-            if '50' not in gems_art:
-                gems_art['50'] = []
-            if 'Items' not in gems_art:
-                gems_art['Items'] = []    
-            for _ in range(d6(2)):
-                gems_art['50'].append(random.choice(gemstones[50]))
-            for _ in range(d6()):
-                gems_art['Items'].append(random.choice(list(magic_items_a.values())))
-
-        elif 61 <= die <= 65:
-            if '10' not in gems_art:
-                gems_art['10'] = []
-            if 'Items' not in gems_art:
-                gems_art['Items'] = []
-            for _ in range(d6(2)):
-                gems_art['10'].append(random.choice(gemstones[10]))
-            for _ in range(d4()):
-                gems_art['Items'].append(random.choice(list(magic_items_b.values())))
-
-        elif 66 <= die <= 70:
-            if '25' not in gems_art:
-                gems_art['25'] = []
-            if 'Items' not in gems_art:
-                gems_art['Items'] = []
-            for _ in range(d4(2)):
-                gems_art['25'].append(random.choice(art_objects[25]))
-            for _ in range(d4()):
-                gems_art['Items'].append(random.choice(list(magic_items_b.values())))
-
-        elif 71 <= die <= 75:
-            if '50' not in gems_art:
-                gems_art['50'] = []
-            if 'Items' not in gems_art:
-                gems_art['Items'] = []
-            for _ in range(d6(2)):
-                gems_art['50'].append(random.choice(gemstones[50]))
-            for _ in range(d4()):
-                gems_art['Items'].append(random.choice(list(magic_items_b.values())))
-
-        elif 76 <= die <= 78:
-            if '10' not in gems_art:
-                gems_art['10'] = []
-            if 'Items' not in gems_art:
-                gems_art['Items'] = []
-            for _ in range(d6(2)):
-                gems_art['10'].append(random.choice(gemstones[10]))
-            for _ in range(d4()):
-                gems_art['Items'].append(random.choice(list(magic_items_c.values())))
-
-        elif 79 <= die <= 80:
-            if '25' not in gems_art:
-                gems_art['25'] = []
-            if 'Items' not in gems_art:
-                gems_art['Items'] = []
-            for _ in range(d4(2)):
-                gems_art['25'].append(random.choice(art_objects[25]))
-            for _ in range(d4()):
-                gems_art['Items'].append(random.choice(list(magic_items_c.values())))
-
-        elif 81 <= die <= 85:
-            if '50' not in gems_art:
-                gems_art['50'] = []
-            if 'Items' not in gems_art:
-                gems_art['Items'] = []
-            for _ in range(d6(2)):
-                gems_art['50'].append(random.choice(gemstones[50]))
-            for _ in range(d4()):
-                gems_art['Items'].append(random.choice(list(magic_items_c.values())))
-
-        elif 86 <= die <= 92:
-            if '25' not in gems_art:
-                gems_art['25'] = []
-            if 'Items' not in gems_art:
-                gems_art['Items'] = []
-            for _ in range(d4(2)):
-                gems_art['25'].append(random.choice(art_objects[25]))
-            for _ in range(d4()):
-                gems_art['Items'].append(random.choice(list(magic_items_f.values())))
-
-        elif 93 <= die <= 97:
-            if '50' not in gems_art:
-                gems_art['50'] = []
-            if 'Items' not in gems_art:
-                gems_art['Items'] = []
-            for _ in range(d6(2)):
-                gems_art['50'].append(random.choice(gemstones[50]))
-            for _ in range(d4()):
-                gems_art['Items'].append(random.choice(list(magic_items_f.values())))
-
-        elif 98 <= die <= 99:
-            if '25' not in gems_art:
-                gems_art['25'] = []
-            if 'Items' not in gems_art:
-                gems_art['Items'] = []
-            for _ in range(d4(2)):
-                gems_art['25'].append(random.choice(art_objects[25]))
-            gems_art['Items'].append(random.choice(list(magic_items_g.values())))
-
-        elif die == 100:
-            if '50' not in gems_art:
-                gems_art['50'] = []
-            if 'Items' not in gems_art:
-                gems_art['Items'] = []
-            for _ in range(d6(2)):
-                gems_art['50'].append(random.choice(gemstones[50]))
-            gems_art['Items'].append(random.choice(list(magic_items_g.values())))
-
-    return gems_art
+        return hoard_gem_art_cr_0_4(die, gems_art)
 
 #page 136
 def treasure(challenge_rating = 0, individual_or_hoard = '', num_of_monsters = 1):
