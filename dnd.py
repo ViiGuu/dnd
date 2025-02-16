@@ -87,6 +87,9 @@ def random_money_reward(challenge_rating, treasure, individual_or_hoard, num):
        return random_money_reward(challenge_rating, treasure, individual_or_hoard, num - 1)
 
 def hoard_gem_art_cr_0_4(die, gems_art):
+    """
+    I know, this code is pure spaghetti
+    """
     if 7 <= die <= 16:
         if '10' not in gems_art:
             gems_art['10'] = []
@@ -236,7 +239,9 @@ def hoard_gem_art_cr_0_4(die, gems_art):
     return gems_art
 
 def gem_art_reward(challenge_rating, gems_art):
-
+    """
+    Depending on challenge rating, returns an amount of gems and art items.
+    """
     die = d100()
     
     if 0 <= challenge_rating <= 4:
