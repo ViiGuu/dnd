@@ -1,6 +1,3 @@
-
-    #NPC FEATURES
-
 npc_stat_blocks = ['bandit', 'commoner', 'acolyte', 'cultist', 'guard']
 
 npc_appearance = ['Distinctive jewelry, earrings, necklace, circlet, bracelets',
