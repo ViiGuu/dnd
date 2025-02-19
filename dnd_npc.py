@@ -1,3 +1,4 @@
+from dice import *
 
 races = {
     "dwarf" : {
@@ -13,7 +14,7 @@ races = {
 stat_blocks = {
     "bandit" : {
         "ac" : 12,
-        "hp" : -1, #replace with dice roll after breaking the dice out in their own module
+        "hp" : max((d8(2) + 2), 10),
         "melee weapon" : [],
         "ranged weapon" : [],
         "stats" : {
