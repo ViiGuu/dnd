@@ -14,6 +14,7 @@ import random
 from dnd_collections import *
 from harptos_calendar import HarptosCalendar
 from dice import *
+import dnd_npc
 
 calendar = HarptosCalendar.load_from_file()
 
@@ -275,170 +276,6 @@ def convert_dnd_currency(currency, amount_str):
         if qty > 0:
             print(f"{qty} {curr} pieces")
 
-def rand_name(names):
-    if len(names) > 2:
-        if random.randint(0, 1) == 1:
-            prefix = random.choice(names[0])
-            middle = random.choice(names[2])
-            suffix = random.choice(names[1])
-            while prefix.lower() == middle.lower() or middle.lower() == suffix.lower(): 
-                middle = random.choice(names[2])
-            while prefix.lower() == suffix.lower() or middle.lower() == suffix.lower():
-                suffix = random.choice(names[1])
-            return prefix + middle + suffix
-        
-    prefix = random.choice(names[0])
-    suffix = random.choice(names[1])
-    while prefix.lower() == suffix.lower():
-        suffix = random.choice(names[1])
-    return prefix + suffix
-
-def npc(race = '', gender = '', stat_block = ''):
-
-    stat_block = stat_block.lower()
-
-    if race not in npc_races:
-        if race == '':
-            race = random.choice(npc_races)
-            print(f"Random race {race}")
-        else:
-            print("Race not recognised")
-            return
-        
-
-    if gender not in ["male", "female"]:
-        if gender == '':
-            gender = random.choice(["male", "female"])
-            print(f"Random gender: {gender}")
-        else:
-            print("Gender not recognised")
-            return
-
-    if stat_block not in npc_stat_blocks:
-        if stat_block == '':
-            stat_block = random.choice(npc_stat_blocks)
-            print(f"Random stat block: {stat_block}")
-        else:
-            print("Stat block not recognised")
-            return
-
-    name = ""
-    ac = 10
-    hp = 10
-    speed = 30
-    weapon = ''
-    ranged_weapon = ''
-    challenge = ''
-    perception = 10
-    stats = 'STR: 10 (+0), DEX: 10 (+0), CON: 10 (+0), INT: 10 (+0), WIS: 10 (+0), CHA: 10 (+0)'
-    traits = []
-    spells = []
-
-    if race == 'dwarf':
-        if gender == 'female':
-            name = rand_name(dwarf_names_female)
-        else:
-            name = rand_name(dwarf_names_male)
-        speed -= 5
-        traits.append("Darkvision 60ft")
-        traits.append("Resistance vs poison damage")
-        traits.append("Advantage on saving throws vs poison")
-
-    if race == 'human':
-        if gender == 'female':
-            name = rand_name(human_names_female)
-        else:
-            name = rand_name(human_names_male)
-
-    if race == 'elf':
-        if gender == 'female':
-            name = rand_name(elf_names_female)
-        else:
-            name = rand_name(elf_names_male)
-        traits.append("Advantage on saving throws vs charmed")
-        traits.append("Immunity vs magical sleep")
-
-    if race == 'halfling':
-        if gender == 'female':
-            name = rand_name(halfling_names_female)
-        else:
-            name = rand_name(halfling_names_male)
-        speed -= 5
-        traits.append("Advantage on saving throws vs frightened")
-        traits.append("Can reroll natural 1 (must use new results)")
-
-    if race == 'gnome':
-        if gender == 'female':
-            name = rand_name(gnome_names_female)
-        else:
-            name = rand_name(gnome_names_male)
-        speed -= 5
-        traits.append("Advantage on Intelligence, Wisdom, and Charisma saving throws against magic")
-
-    if stat_block == 'bandit':
-        ac = 12
-        hp = max((d8(2) + 2), 10)
-        melee_weapons = ['Scimitar (+3 to hit, 5ft range, 1d6 + 1 slashing damage)',
-                        'Shortsword (+3 to hit, 5ft range, 1d6 + 1 slashing damage)',
-                        'Handaxe (+3 to hit, 5ft range, 1d6 + 1 slashing damage, thrown (range 20/60)']
-        weapon = random.choice(melee_weapons)
-        ranged_weapon = 'Light crossbow (+3 to hit, 80/320ft range, 1d8 + 1 piercing damage)'
-        challenge = '1/8 (25 XP)'
-        stats = 'STR: 11 (+0), DEX: 12 (+1), CON: 12 (+1), INT: 10 (+0), WIS: 10 (+0), CHA: 10 (+0)'
-
-    if stat_block == 'commoner':
-        hp = max(d8(), 4)
-        melee_weapons = ['Club (+2 to hit, 5ft range, 1d4) bludgeoning damage',
-                        'Dagger (+2 to hit, 5ft range, 1d4) piercing damage, thrown (range 20/60)',
-                        'Light hammer (+2 to hit, 5ft range, 1d4) bludgeoning damage, thrown (range 20/60)']
-        weapon = random.choice(melee_weapons)
-        challenge = '0 (10 XP)'
-
-    if stat_block == 'acolyte':
-        hp = max((d8(2)), 9)
-        weapon = 'Club (+2 to hit, 5ft range, 1d4) bludgeoning damage'
-        stats = 'STR: 10 (+0), DEX: 10 (+0), CON: 10 (+0), INT: 10 (+0), WIS: 14 (+2), CHA: 11 (+0)'
-        spells.append("Spellcasting: Wisdom. Spell Save DC: 12. +4 to hit.")
-        spells.append("Cantrips: light, sacred flame, thaumaturgy.")
-        spells.append("1st level (3 slots): bless, cure wounds, sanctuary")
-        challenge = '1/4 (50 XP)'
-        perception = 12
-
-    if stat_block == 'cultist':
-        hp = max((d8(2)), 9)
-        weapon = 'Scimitar (+3 to hit, 5ft range, 1d6 + 1 slashing damage)'
-        ac = 12
-        stats = 'STR: 11 (+0), DEX: 12 (+1), CON: 10 (+0), INT: 10 (+0), WIS: 11 (+0), CHA: 10 (+0)'
-        traits.append("Dark Devotion: Saving throws vs charmed or frightened")
-        challenge = '1/8 (25 XP)'
-
-    if stat_block == 'guard':
-        ac = 16
-        hp = max(11, (d8(2) + 2))
-        stats = 'STR: 13 (+1), DEX: 12 (+1), CON: 12 (+1), INT: 10 (+0), WIS: 11 (+0), CHA: 10 (+0)'
-        perception = 12
-        challenge = '1/8 (25 XP)'
-        weapon = 'Spear: (+3 to hit, 5ft range, thrown (range 20/60 ft). 1d6 + 1 piercing damage or 1d8 + 1 if 2h)'
-
-    print(f"\nNPC is a {gender} {race} called {name}")
-    print(f"Character has appearance: {random.choice(npc_appearance)}")
-    print(f"Character has mannerism: {random.choice(npc_mannerism)}")
-    print(f"Character has trait: {random.choice(npc_traits)}\n")
-    print(f'AC: {ac}')
-    print(f'HP: {hp}\n')
-    if weapon != '':
-        print(f"Melee weapon:\n{weapon}")
-    if ranged_weapon != '':
-        print(f"Ranged weapon:\n{ranged_weapon}\n")
-    print(f"Challenge rating {challenge}")
-    print(f"Passive perception {perception}")
-    print(f"{stats}\n")
-    for trait in traits:
-        print(trait)
-    print("")
-    for spell in spells:
-        print(spell)
-
 def encounter(num_encounters = 2):
     social_encounters = [
         "Traveling merchant with unusual wares",
@@ -636,7 +473,8 @@ def main():
     args = parser.parse_args()
     
     if args.function == 'npc':
-        npc(args.race, args.gender, args.stat_block)
+        npc = dnd_npc.NPC(args.race, args.gender, args.stat_block)
+        print(npc)
     elif args.function == 'treasure':
         treasure(args.challenge, args.individual_or_hoard, args.num_of_monsters)
     elif args.function == 'trinket':
